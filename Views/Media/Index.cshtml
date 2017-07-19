@@ -1,0 +1,42 @@
+<script src="~/angular/api/mediaApi.consts.js"></script>
+<script src="~/angular/api/services/data.service.js"></script>
+<script src="~/angular/api/controllers/media.controller.js"></script>
+
+
+<h2>Interview task</h2>
+
+<div class="container" ng-app="mediaApp" ng-controller="mediaController">
+	@*/*This should be directives or components*/*@
+	<div class="col-md-6">
+		<div ng-repeat="electricity in electricityData ">
+			<div>
+				<b>{{electricity.name}}</b>
+			</div>
+			<div>
+				Price: {{electricity.price | eur}}
+			</div>
+			<div>
+				House type: {{electricity.houseType}}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<div ng-repeat="heat in heatData">
+			<b>{{heat.name}}</b>
+			<div>
+				Price: {{heat.price | eur}}
+			</div>
+			Temperatures:
+			<span ng-repeat="temperature in heat.temperatures track by $index">
+				
+				<span ng-if="$index==0">{{temperature | temperature}}</span>
+				<span ng-if="$index>0">, {{temperature | temperature}}</span>
+
+			</span>
+		</div>
+	</div>
+
+
+
+
+</div>
